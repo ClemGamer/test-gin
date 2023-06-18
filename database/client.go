@@ -3,7 +3,7 @@ package database
 import (
 	"log"
 
-	"github.com/ClemGamer/test-gin/entities"
+	"github.com/ClemGamer/test-gin/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -23,7 +23,7 @@ func Connect(connectionString string) {
 
 // migrate tables
 func Migrate() {
-	Instance.AutoMigrate(&entities.User{})
+	Instance.AutoMigrate(&models.User{})
 	log.Println("Database Migration Completed")
 }
 

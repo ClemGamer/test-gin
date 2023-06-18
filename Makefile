@@ -1,0 +1,6 @@
+DOCKER_CMD=docker
+DOCKER_BUILD=$(DOCKER_CMD) build
+DOCKER_IMAGE_NAME=test-server
+
+docker_build:
+	$(DOCKER_BUILD) -t $(DOCKER_IMAGE_NAME) .

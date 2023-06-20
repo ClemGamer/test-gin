@@ -1,4 +1,4 @@
-package controllers
+package v1
 
 import (
 	"encoding/json"
@@ -7,13 +7,18 @@ import (
 
 	"github.com/ClemGamer/test-gin/database"
 	"github.com/ClemGamer/test-gin/models"
-
 	"github.com/gin-gonic/gin"
 )
 
-type User struct{}
+func UserRouter(r *gin.RouterGroup) {
+	userRouter := r.Group("v1/user")
+	{
+		userRouter.GET("/", getUserList)
+	}
+}
 
-func (c User) All(ctx *gin.Context) {
+func getUserList(ctx *gin.Context) {
+
 	users := []models.User{}
 	database.Instance.Find(&users)
 	bs, err := json.Marshal(users)

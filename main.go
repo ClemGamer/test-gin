@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/ClemGamer/test-gin/database"
-	"github.com/ClemGamer/test-gin/http/controllers"
 	"github.com/gin-gonic/gin"
 )
 
@@ -33,11 +32,6 @@ func main() {
 			"message": "hello",
 		})
 	})
-
-	apiGroup := router.Group("/api")
-	{
-		apiGroup.GET("/users", controllers.User{}.All)
-	}
 
 	srv := &http.Server{
 		Addr:    ":" + AppConfig.Port,
